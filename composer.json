@@ -1,0 +1,24 @@
+{
+    "name": "freescout/unassignedcount",
+    "description": "",
+    "authors": [
+        {
+            "name": "Ben Perry"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\UnassignedCount\\Providers\\UnassignedCountServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\UnassignedCount\\": ""
+        }
+    }
+}

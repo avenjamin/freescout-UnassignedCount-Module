@@ -1,0 +1,23 @@
+{
+    "name": "UnassignedCount",
+    "alias": "unassignedcount",
+    "description": "Display the number of unassigned conversations in the Mailbox menu.",
+    "version": "1.0.0",
+    "detailsUrl": "https://github.com/avenjamin/freescout-UnassignedCount-Module",
+    "author": "Ben Perry",
+    "authorUrl": "https://github.com/avenjamin",
+    "requiredAppVersion": "1.8.58",
+    "license": "AGPL-3.0",
+    "keywords": [],
+	"img": "/modules/unassignedcount/img/freescout-unassignedcount-module-256x256.png",
+    "active": 0,
+    "order": 0,
+    "providers": [
+        "Modules\\UnassignedCount\\Providers\\UnassignedCountServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        "start.php"
+    ],
+    "requires": []
+}
