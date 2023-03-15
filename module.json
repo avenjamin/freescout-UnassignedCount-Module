@@ -1,5 +1,5 @@
 {
-    "name": "UnassignedCount",
+    "name": "Unassigned Count",
     "alias": "unassignedcount",
     "description": "Display the number of unassigned conversations in the Mailbox menu.",
     "version": "1.0.0",
