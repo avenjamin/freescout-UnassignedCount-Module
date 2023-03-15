@@ -15,7 +15,8 @@
 ## Update
 1. Navigate to the Unassigned Count Module folder e.g. `cd /var/www/html/Modules/UnassignedCount`
 2. Run `git pull`
-3. Enjoy the update!
+3. Run `chown -R www-data:www-data UnassignedCount` (or whichever user:group your webserver uses)
+4. Enjoy the update!
 
 ## Known Issues
 * Requires at least 2 mailboxes to be created before the Mailbox menu appears
