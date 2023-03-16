@@ -20,3 +20,5 @@
 
 ## Known Issues
 * Requires at least 2 mailboxes to be created before the Mailbox menu appears
+
+<a href="https://www.buymeacoffee.com/benperry" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
