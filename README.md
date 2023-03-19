@@ -1,6 +1,10 @@
 # FreeScout Unassigned Count Module
 [FreeScout](https://github.com/freescout-helpdesk/freescout "FreeScout") Module to display the number of unassigned conversations in the Mailbox menu.
 
+<img src="Public/img/freescout-unassignedcount-module-256x256.png" width="192" height="192" style="border-radius: 1em;" />
+
+## Screenshot
+
 ![Mailbox Menu](Public/img/UnassignedCount-Screenshot.png)
 
 ## Changes
@@ -19,6 +23,6 @@
 4. Enjoy the update!
 
 ## Known Issues
-* Requires at least 2 mailboxes to be created before the Mailbox menu appears
+* ~~Requires at least 2 mailboxes to be created before the Mailbox menu appears~~ Fixed in FreeScout v1.8.68
 
 <a href="https://www.buymeacoffee.com/benperry" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>

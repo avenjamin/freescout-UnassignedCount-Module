@@ -6,7 +6,7 @@
     "detailsUrl": "https://github.com/avenjamin/freescout-UnassignedCount-Module",
     "author": "Ben Perry",
     "authorUrl": "https://github.com/avenjamin",
-    "requiredAppVersion": "1.8.58",
+    "requiredAppVersion": "1.8.16",
     "license": "AGPL-3.0",
     "keywords": [],
 	"img": "/modules/unassignedcount/img/freescout-unassignedcount-module-256x256.png",
