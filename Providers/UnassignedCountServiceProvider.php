@@ -34,6 +34,26 @@ class UnassignedCountServiceProvider extends ServiceProvider
     public function hooks()
     {
         // Show number of unassigned conversations in Mailbox menu
+        \Eventy::addAction('menu.mailbox_single.before_name', function($mailbox_item) {
+            if ('before' == \Option::get('unassignedcount.unassigned_count_position', \Config::get('unassignedcount.unassigned_count_position'))) {
+                $numberOfUnassignedConversations = $mailbox_item->getFolderByType(1)->getCount();
+                if ($numberOfUnassignedConversations > 0) {
+                    echo '<b>('.$numberOfUnassignedConversations.')</b> ';
+                }
+            }
+        });
+        
+        // Show number of unassigned conversations in Mailbox menu
+        \Eventy::addAction('menu.mailbox_single.after_name', function($mailbox_item) {
+            if ('after' == \Option::get('unassignedcount.unassigned_count_position', \Config::get('unassignedcount.unassigned_count_position'))) {
+                $numberOfUnassignedConversations = $mailbox_item->getFolderByType(1)->getCount();
+                if ($numberOfUnassignedConversations > 0) {
+                    echo ' <b>('.$numberOfUnassignedConversations.')</b>';
+                }
+            }
+        });
+        
+        // Show number of unassigned conversations in Mailbox menu
         \Eventy::addAction('menu.mailbox.before_name', function($mailbox_item) {
             if ('before' == \Option::get('unassignedcount.unassigned_count_position', \Config::get('unassignedcount.unassigned_count_position'))) {
                 $numberOfUnassignedConversations = $mailbox_item->getFolderByType(1)->getCount();
