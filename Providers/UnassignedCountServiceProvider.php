@@ -28,6 +28,26 @@ class UnassignedCountServiceProvider extends ServiceProvider
         $this->hooks();
     }
 
+	
+	public function getNumberOfUnassignedConversationsText($mailbox_item) {
+		// Validate $mailbox_item
+		if (!$mailbox_item or !$mailbox_item->getFolderByType(1))
+			return '';
+		
+		// Get position setting
+		$position = \Option::get('unassignedcount.unassigned_count_position', \Config::get('unassignedcount.unassigned_count_position'));
+
+		// Get the number of unassigned conversations
+        $numberOfUnassignedConversations = $mailbox_item->getFolderByType(1)->getCount();
+		
+		// Return the text if the number of unassigned conversations is greater than 0
+		if ($numberOfUnassignedConversations > 0)
+			return ($position == 'before' ? ' ' : '').'<b>('.$numberOfUnassignedConversations.')</b>'.($position == 'after' ? ' ' : '');
+		
+		// Otherwise return an empty string
+		return '';
+	}
+
     /**
      * Module hooks.
      */
@@ -35,44 +55,24 @@ class UnassignedCountServiceProvider extends ServiceProvider
     {
         // Show number of unassigned conversations in Mailbox menu
         \Eventy::addAction('menu.mailbox_single.before_name', function($mailbox_item) {
-            if ('before' == \Option::get('unassignedcount.unassigned_count_position', \Config::get('unassignedcount.unassigned_count_position'))) {
-                $numberOfUnassignedConversations = $mailbox_item->getFolderByType(1)->getCount();
-                if ($numberOfUnassignedConversations > 0) {
-                    echo '<b>('.$numberOfUnassignedConversations.')</b> ';
-                }
-            }
+            echo $this->getNumberOfUnassignedConversationsText($mailbox_item);
         });
         
         // Show number of unassigned conversations in Mailbox menu
         \Eventy::addAction('menu.mailbox_single.after_name', function($mailbox_item) {
-            if ('after' == \Option::get('unassignedcount.unassigned_count_position', \Config::get('unassignedcount.unassigned_count_position'))) {
-                $numberOfUnassignedConversations = $mailbox_item->getFolderByType(1)->getCount();
-                if ($numberOfUnassignedConversations > 0) {
-                    echo ' <b>('.$numberOfUnassignedConversations.')</b>';
-                }
-            }
+            echo $this->getNumberOfUnassignedConversationsText($mailbox_item);
         });
         
         // Show number of unassigned conversations in Mailbox menu
         \Eventy::addAction('menu.mailbox.before_name', function($mailbox_item) {
-            if ('before' == \Option::get('unassignedcount.unassigned_count_position', \Config::get('unassignedcount.unassigned_count_position'))) {
-                $numberOfUnassignedConversations = $mailbox_item->getFolderByType(1)->getCount();
-                if ($numberOfUnassignedConversations > 0) {
-                    echo '<b>('.$numberOfUnassignedConversations.')</b> ';
-                }
-            }
+            echo $this->getNumberOfUnassignedConversationsText($mailbox_item);
         });
         
-        // Show number of unassigned conversations in Mailbox menu
-        \Eventy::addAction('menu.mailbox.after_name', function($mailbox_item) {
-            if ('after' == \Option::get('unassignedcount.unassigned_count_position', \Config::get('unassignedcount.unassigned_count_position'))) {
-                $numberOfUnassignedConversations = $mailbox_item->getFolderByType(1)->getCount();
-                if ($numberOfUnassignedConversations > 0) {
-                    echo ' <b>('.$numberOfUnassignedConversations.')</b>';
-                }
-            }
-        });
-    }
+		// Show number of unassigned conversations in Mailbox menu
+		\Eventy::addAction('menu.mailbox.after_name', function($mailbox_item) {
+            echo $this->getNumberOfUnassignedConversationsText($mailbox_item);
+		});
+	}
 
     /**
      * Register the service provider.
