@@ -55,22 +55,26 @@ class UnassignedCountServiceProvider extends ServiceProvider
     {
         // Show number of unassigned conversations in Mailbox menu
         \Eventy::addAction('menu.mailbox_single.before_name', function($mailbox_item) {
-            echo $this->getNumberOfUnassignedConversationsText($mailbox_item);
+			if ('before' == \Option::get('unassignedcount.unassigned_count_position', \Config::get('unassignedcount.unassigned_count_position')))
+	            echo $this->getNumberOfUnassignedConversationsText($mailbox_item);
         });
         
         // Show number of unassigned conversations in Mailbox menu
         \Eventy::addAction('menu.mailbox_single.after_name', function($mailbox_item) {
-            echo $this->getNumberOfUnassignedConversationsText($mailbox_item);
+			if ('after' == \Option::get('unassignedcount.unassigned_count_position', \Config::get('unassignedcount.unassigned_count_position')))
+	            echo $this->getNumberOfUnassignedConversationsText($mailbox_item);
         });
         
         // Show number of unassigned conversations in Mailbox menu
         \Eventy::addAction('menu.mailbox.before_name', function($mailbox_item) {
-            echo $this->getNumberOfUnassignedConversationsText($mailbox_item);
+			if ('before' == \Option::get('unassignedcount.unassigned_count_position', \Config::get('unassignedcount.unassigned_count_position')))
+	            echo $this->getNumberOfUnassignedConversationsText($mailbox_item);
         });
         
 		// Show number of unassigned conversations in Mailbox menu
 		\Eventy::addAction('menu.mailbox.after_name', function($mailbox_item) {
-            echo $this->getNumberOfUnassignedConversationsText($mailbox_item);
+			if ('after' == \Option::get('unassignedcount.unassigned_count_position', \Config::get('unassignedcount.unassigned_count_position')))
+				echo $this->getNumberOfUnassignedConversationsText($mailbox_item);
 		});
 	}
 
