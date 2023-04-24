@@ -42,7 +42,7 @@ class UnassignedCountServiceProvider extends ServiceProvider
 		
 		// Return the text if the number of unassigned conversations is greater than 0
 		if ($numberOfUnassignedConversations > 0)
-			return ($position == 'before' ? ' ' : '').'<b>('.$numberOfUnassignedConversations.')</b>'.($position == 'after' ? ' ' : '');
+			return ($position == 'after' ? ' ' : '').'<b>('.$numberOfUnassignedConversations.')</b>'.($position == 'before' ? ' ' : '');
 		
 		// Otherwise return an empty string
 		return '';
